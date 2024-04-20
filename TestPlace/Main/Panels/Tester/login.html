@@ -1,0 +1,30 @@
+<head>
+  <title>TestPlace - Tester LogIn</title>
+</head>
+<body>
+  <h1 style="text-align: center;">TestPlace</h1>
+  <label for="codeInput">Enter Code:</label>
+  <input type="text" id="codeInput" name="codeInput">
+  <button onclick="executeCode()">Submit</button>
+
+  <script>
+    function executeCode() {
+        var code = document.getElementById("codeInput").value;
+
+        // Check which code was entered and execute the corresponding action
+        if (code === "tptesting1234") {
+            action1();
+        } else if (code === "anothercode") {
+            action2();
+        } else if (code === "yetanothercode") {
+            action3();
+        } else {
+            alert("Invalid code. Please try again.");
+        }
+    }
+
+    function action1() {
+      window.location.href ="teststuff.html"
+    }
+  </script>
+</body>

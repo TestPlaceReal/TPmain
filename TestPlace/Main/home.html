@@ -1,0 +1,44 @@
+<head>
+  <title>TestPlace - Home</title>
+</head>
+<body>
+  <h1 style="text-align: center;">TestPlace</h1>
+  <p style="text-align: center;">Hello! Welcome To TestPlace!</p>
+  <p>To Get A Account "Teacher" Please Email toofooyt@gmail.com For More Info.</p>
+  <a href="LogIn%20&%20SignUp/index.html">LogIn</a>
+  <label for="codeInput">Enter Code:</label>
+  <input type="text" id="codeInput" name="codeInput">
+  <button onclick="executeCode()">Submit</button>
+
+  <script>
+    function executeCode() {
+        var code = document.getElementById("codeInput").value;
+
+        // Check which code was entered and execute the corresponding action
+        if (code === "owner") {
+            action1();
+        } else if (code === "teacher") {
+            action2();
+        } else if (code === "tester") {
+            action3();
+          } else if (code === "version") {
+          action4();
+        } else {
+            alert("Invalid code. Please try again.");
+        }
+    }
+
+    function action1() {
+      window.location.href ="Panels/Owner/OPlogin.html"
+    }
+    function action2() {
+      window.location.href ="Panels/Teacher/login.html"
+    }
+    function action3() {
+      window.location.href ="Panels/Tester/login.html"
+    }
+    function action4() {
+      window.location.href ="version.txt"
+    }
+  </script>
+  </body>

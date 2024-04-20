@@ -1,0 +1,31 @@
+<head>
+  <title>TestPlace - Teacher LogIn</title>
+</head>
+<body>
+  <h1 style="text-align: center;">TestPlace</h1>
+  <P>ENTER TEACHER ID (Account ID For A Teacher)</P>
+  <label for="codeInput">Enter Code:</label>
+  <input type="text" id="codeInput" name="codeInput">
+  <button onclick="executeCode()">Submit</button>
+
+  <script>
+    function executeCode() {
+        var code = document.getElementById("codeInput").value;
+
+        // Check which code was entered and execute the corresponding action
+        if (code === "tacc-4795") {
+            action1();
+        } else if (code === "anothercode") {
+            action2();
+        } else if (code === "yetanothercode") {
+            action3();
+        } else {
+            alert("Invalid code. Please try again.");
+        }
+    }
+
+    function action1() {
+      window.location.href ="W. Parker/TEACHERPANEL.html"
+    }
+  </script>
+</body>
