@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountan Rush Math</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #mountain {
+            width: 400px;
+            height: 300px;
+            background-image: url('mountain.png'); /* Replace 'mountain.png' with your mountain image */
+            background-size: cover;
+            margin: 20px auto;
+            position: relative;
+        }
+        #player {
+            width: 50px;
+            height: 50px;
+            background-color: blue; /* Change the color as needed */
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #question {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mount Rush Math</h1>
+    <div id="mountain">
+        <div id="player"></div>
+    </div>
+    <div id="question"></div>
+    <button onclick="checkAnswer()">Submit Answer</button>
+
+    <script>
+        var currentPosition = 0; // Current position of the player on the mountain
+        var questions = []; // Array to store generated questions
+
+        // Generate a random math problem
+        function generateQuestion() {
+            var num1 = Math.floor(Math.random() * 10) + 1; // Random number between 1 and 10
+            var num2 = Math.floor(Math.random() * 10) + 1; // Random number between 1 and 10
+            var operator = ['+', '-', '×'][Math.floor(Math.random() * 3)]; // Randomly select an operator (+, -, ×)
+            var question = num1 + ' ' + operator + ' ' + num2; // Formulate the question
+            var answer = eval(question); // Calculate the answer
+            return { question: question, answer: answer };
+        }
+
+        // Display a new question
+        function displayQuestion() {
+            var questionObj = generateQuestion();
+            document.getElementById('question').textContent = 'Question: ' + questionObj.question;
+            questions.push(questionObj);
+        }
+
+        // Check the user's answer
+        function checkAnswer() {
+            var userAnswer = parseInt(prompt('Enter your answer:'));
+            var correctAnswer = questions[currentPosition].answer;
+            if (userAnswer === correctAnswer) {
+                alert('Correct! You move up the mountain!');
+                currentPosition++;
+                if (currentPosition === 5) {
+                    alert('Congratulations! You reached the top of the mountain!');
+                } else {
+                    displayQuestion();
+                }
+            } else {
+                alert('Incorrect answer. Try again.');
+            }
+        }
+
+        // Initialize the game
+        displayQuestion();
+    </script>
+</body>
+</html>
