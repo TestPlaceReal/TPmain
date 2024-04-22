@@ -1,5 +1,4 @@
 # TestPlace
 **Cool**
 # Credits
-Owner - WesP
-Developer - WesP & ChatGPT
+Owner - WesP | Developer - WesP & ChatGPT
